@@ -40,7 +40,7 @@ char	*clear_mem_err(char **buff, char **line, char **rems)
 		malloc_free_p(0, (void **)buff);
 	if (*line)
 		malloc_free_p(0, (void **)line);
-	while (++i < OPEN_MAX)
+	while (++i < FOPEN_MAX)
 		if (rems[i])
 			malloc_free_p(0, (void **)&rems[i]);
 	return (NULL);

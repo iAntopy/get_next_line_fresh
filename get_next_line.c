@@ -31,7 +31,7 @@ int	scan_for_nl(char *str, size_t *idx)
 	return (0);
 }
 
-char	*clear_mem_err(char **buff, char **line, char *rems[OPEN_MAX])
+char	*clear_mem_err(char **buff, char **line, char **rems)
 {
 	int	i;
 
