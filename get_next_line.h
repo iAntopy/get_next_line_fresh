@@ -6,7 +6,7 @@
 /*   By: iamongeo <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 18:05:43 by iamongeo          #+#    #+#             */
-/*   Updated: 2022/06/09 21:27:47 by iamongeo         ###   ########.fr       */
+/*   Updated: 2022/06/09 22:00:47 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,6 @@
 
 # ifndef SIZE_MAX
 #  define SIZE_MAX 0xffffffffffffffffULL
-# endif
-
-# ifndef OPEN_MAX
-#  ifdef FOPEN_MAX
-#   define OPEN_MAX FOPEN_MAX
-#  endif
-#  ifdef _SC_OPEN_MAX
-#   define OPEN_MAX _SC_OPEN_MAX
-#  endif
 # endif
 
 char	*get_next_line(int fd);

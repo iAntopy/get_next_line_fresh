@@ -6,7 +6,7 @@
 /*   By: iamongeo <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:37:45 by iamongeo          #+#    #+#             */
-/*   Updated: 2022/06/09 20:55:16 by iamongeo         ###   ########.fr       */
+/*   Updated: 2022/06/09 21:58:16 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*clear_mem_err(char **buff, char **line, char *rems[OPEN_MAX])
 		malloc_free_p(0, (void **)buff);
 	if (*line)
 		malloc_free_p(0, (void **)line);
-	while (++i < OPEN_MAX)
+	while (++i < FOPEN_MAX)
 		if (rems[i])
 			malloc_free_p(0, (void **)&rems[i]);
 	return (NULL);
@@ -85,14 +85,14 @@ int	read_wrapper(int fd, char *buff, size_t *n_chrs)
 
 char	*get_next_line(int fd)
 {
-	static char	*rems[OPEN_MAX];
+	static char	*rems[FOPEN_MAX];
 	char		*line;
 	char		*buff;
 	size_t		idx;
 	size_t		n_chrs;
 
 	line = NULL;
-	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE < 1)
+	if (fd < 0 || fd >= FOPEN_MAX || BUFFER_SIZE < 1)
 		return (NULL);
 	if (!gnl_prep(&rems[fd], &buff, &line))
 		return (clear_mem_err(&buff, &line, rems));
