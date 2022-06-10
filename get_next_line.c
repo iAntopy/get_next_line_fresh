@@ -6,7 +6,7 @@
 /*   By: iamongeo <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:37:45 by iamongeo          #+#    #+#             */
-/*   Updated: 2022/06/09 19:51:57 by iamongeo         ###   ########.fr       */
+/*   Updated: 2022/06/09 20:35:33 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,14 @@ int	read_wrapper(int fd, char *buff, size_t *n_chrs)
 	if (!buff)
 		printf("read : trying to read in no buffer\n");
 	*n_chrs = read(fd, buff, BUFFER_SIZE);
-	buff[*n_chrs] = '\0';
-//	printf("readwrap : buffer read : %s\n", buff);
 	if (*n_chrs == SIZE_MAX)
 		printf("read : quit due to INVALID FD\n");
 	if (!(*n_chrs))
 		*n_chrs = SIZE_MAX;
 	if (!(*n_chrs) || *n_chrs == SIZE_MAX)
 		return (0);
+	buff[*n_chrs] = '\0';
+//	printf("readwrap : buffer read : %s\n", buff);
 	return (1);
 }
 
