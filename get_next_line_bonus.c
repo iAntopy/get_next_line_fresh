@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iamongeo <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/08 17:37:45 by iamongeo          #+#    #+#             */
-/*   Updated: 2022/06/09 22:01:38 by iamongeo         ###   ########.fr       */
+/*   Created: 2022/06/27 13:31:22 by iamongeo          #+#    #+#             */
+/*   Updated: 2022/06/27 13:31:30 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-#include <stdio.h>
+#include "get_next_line_bonus.h"
 
 int	scan_for_nl(char *str, size_t *idx)
 {
@@ -40,7 +38,7 @@ char	*clear_mem_err(char **buff, char **line, char **rems)
 		malloc_free_p(0, (void **)buff);
 	if (*line)
 		malloc_free_p(0, (void **)line);
-	while (++i < FOPEN_MAX)
+	while (++i < _OPEN_MAX_)
 		if (rems[i])
 			malloc_free_p(0, (void **)&rems[i]);
 	return (NULL);
@@ -85,14 +83,14 @@ int	read_wrapper(int fd, char *buff, size_t *n_chrs)
 
 char	*get_next_line(int fd)
 {
-	static char	*rems[FOPEN_MAX];
+	static char	*rems[_OPEN_MAX_];
 	char		*line;
 	char		*buff;
 	size_t		idx;
 	size_t		n_chrs;
 
 	line = NULL;
-	if (fd < 0 || fd >= FOPEN_MAX || BUFFER_SIZE < 1)
+	if (fd < 0 || fd >= _OPEN_MAX_ || BUFFER_SIZE < 1)
 		return (NULL);
 	if (!gnl_prep(&rems[fd], &buff, &line))
 		return (clear_mem_err(&buff, &line, rems));

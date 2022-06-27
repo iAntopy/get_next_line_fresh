@@ -6,13 +6,11 @@
 /*   By: iamongeo <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:38:06 by iamongeo          #+#    #+#             */
-/*   Updated: 2022/06/09 20:51:12 by iamongeo         ###   ########.fr       */
+/*   Updated: 2022/06/27 12:47:08 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-#include <stdio.h>
 
 int	malloc_free_p(size_t size, void **ptr)
 {	
@@ -68,33 +66,3 @@ int	join_swap(char **old, char *new, size_t n)
 	*c = '\0';
 	return (1);
 }
-/*
-typedef struct s_lst
-{
-	s_lst	*next;
-	char	*str;
-}	t_lst;
-
-void	lst_push(t_lst **lst, char *str_p)
-{
-	t_lst	*elem;
-
-	elem = malloc(sizeof(t_lst));
-	if (!elem)
-		return ;
-	if (lst && *lst)
-		elem->next = NULL;
-	elem->str = str_p;
-	*lst = elem;
-}
-
-int	main()
-{
-	char	buff[] = "Salut comment";
-	char	buff2[] = " ca va.";
-	t_lst	*fu;
-
-	fu = NULL;
-	lst_push(&fu);
-
-}*/
